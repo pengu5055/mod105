@@ -1,15 +1,18 @@
 """
 Contains the BinaryReaction class, which is used to store information about a
-binary chemical reaction. This class is used by the ReactionSystem class.
+binary chemical reaction. It is used to simulate the reaction and plot the
+results.
 """
 import numpy as np
+from scipy.integrate import solve_ivp
 from typing import Any, Iterable
 
 class BinaryReaction:
     def __init__(self,
-                 p: float,
-                 q: float,
-                 r: float,
+                 init_conc:Iterable[float],
+                 tau: Iterable[float],
+                 k: Iterable[float],
+                 s: Iterable[float],
                  ) -> None:
         """
         Initializes a BinaryReaction object with the given parameters.
@@ -19,19 +22,69 @@ class BinaryReaction:
 
         Parameters
         ----------
-        p : float
-            The rate constant for the forward direction
-            of the equilibrium reaction.
-        q : float
-            The rate constant for the backward direction
-            of the equilibrium reaction.
-        r : float
-            The rate constant for the forward direction
-            of the non-equilibrium reaction.
+        init_conc : Iterable[float]
+            The initial concentrations of the species.
+        tau : Iterable[float]
+            Dimensionless time at which to evaluate the solution.
+        k : Iterable[float]
+            Dimensionless equilibrium constants.
+        s : Iterable[float]
+            Dimensionless rate constants.
         """
-        self.p = p
-        self.q = q
-        self.r = r
+        self.init_conc = init_conc
+        self.tau = tau
+        self.k = k
+        self.s = s
+
+        self.solve_for = (0, 0)
+
+    def rate_eq(self, t:Iterable[float], y:Iterable[float]):
+        """
+        Define the rate equations for the BinaryReaction object.
+        These are in a dimensionless form.
+        """
+        # Unpack the state vector
+        a, a_star, b, c = y
+        
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        # Pack a vector to give to the rate equations
+        pack = np.array([a, a_star, k, s])
+
+        # Define the rate equations
+        da = self._da(a, a_star, p, q)
+        da_star = self._da_star(a, a_star, p, q, r)
+        db = self._db(a_star, r)
+        dc = self._dc(a_star, r)
+
+        # Return the rate equations
+        return np.array([da, da_star, db, dc])
+    
+    def solve(self) -> np.ndarray:
+        """
+        Solves the reaction system and returns the result.
+
+        Returns
+        -------
+        np.ndarray
+            The solution to the reaction system.
+        """
+        sol = solve_ivp(self.rate_eq, (self.t[0], self.t[-1]), self.init_conc, t_eval=self.t)
+        return sol
+    
+    def _da(self, a, a_star, k, s):
+        return k*a*a_star - a**2
+    
+    def _da_star(self, a, a_star, k, s):
+        return a**2 - k*a*a_star - s*k*a_star
+    
+    def _db(self, a, a_star, k, s):
+        return k*a_star
+    
+    def _dc(self, a, a_star, k, s):
+        return k*a_star
 
     def __repr__(self) -> str:
         """
@@ -98,40 +151,5 @@ class BinaryReaction:
             The rate equations for the BinaryReaction object.
         """
         return self.rate_eq(t, y)
-        
     
-    def rate_eq(self, t:Iterable[float], y:Iterable[float]):
-        """
-        Define the rate equations for the BinaryReaction object.
-        """
-        # Unpack the state vector
-        A, A_star, B, C = y
-        
-        # Get rate constants
-        p = self.p
-        q = self.q
-        r = self.r
-
-        # Define the rate equations
-        dAdt = self._dAdt(A, A_star, p, q)
-        dA_stardt = self._dA_stardt(A, A_star, p, q, r)
-        dBdt = self._dBdt(A_star, r)
-        dCdt = self._dCdt(A_star, r)
-
-        # Return the rate equations
-        return np.array([dAdt, dA_stardt, dBdt, dCdt])
     
-    def _dAdt(self, A, A_star, p, q):
-        return -p*A**2 + q*A*A_star
-    
-    def _dA_stardt(self, A, A_star, p, q, r):
-        return p*A**2 - q*A*A_star - r*A_star
-    
-    def _dBdt(self, A_star, r):
-        return r*A_star
-    
-    def _dCdt(self, A_star, r):
-        return r*A_star
-
-
-
