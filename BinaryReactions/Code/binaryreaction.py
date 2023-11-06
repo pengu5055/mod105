@@ -232,4 +232,73 @@ class BinaryEquilibrium(BinaryReaction):
         sol = [sol.y[0], self.a_star(sol.y[0]), sol.y[1], sol.y[2]]
 
         return sol
+
+class BinarySingular(BinaryReaction):
+    def __init__(self, init_conc: Iterable[float], tau: Iterable[float], k: Iterable[float], s: Iterable[float]) -> None:
+        super().__init__(init_conc, tau, k, s)
+
+    def sol_b(self, sol_a):
+
+        a = sol_a
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        return s**3 * np.log((a-s)/(1-s)) + \
+               s**2 * (a - 1) + \
+               s/2 * (a**2 - 1)
+    
+    def sol_c(self, sol_a):
+            
+            a = sol_a
+            # Get rate constants
+            k = self.k[self.solve_for[0]]
+            s = self.s[self.solve_for[1]]
+    
+            return s**3 * np.log((a-s)/(1-s)) + \
+                s**2 * (a - 1) + \
+                s/2 * (a**2 - 1)
+    
+    def sol_a_star(self, a_solution: Iterable[float]):
+        """
+        Returns the equilibrium value of a_star.
+        NOT THE DERIVATIVE OF a_star.
+
+        Returns
+        -------
+        float
+            The equilibrium value of a_star.
+        """
+        a = a_solution
+
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        return a**2/(k*(a-s))
+    
+    def _da(self, t, a):
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        return a**3/(a - s) - a**2
+    
+    def sol_a(self):
+        """
+        Solves the reaction system and returns the result.
+
+        Returns
+        -------
+        np.ndarray
+            The solution to the reaction system.
+        """
+        y0 = [self.init_conc[0]]
+        sol = solve_ivp(self._da, (self.tau[0], self.tau[-1]), y0, t_eval=self.tau)
+        return sol
+    
+    def solve(self):
+        sol_a = self.sol_a()
+        sol = [sol_a.y[0], self.sol_a_star(sol_a.y[0]), self.sol_b(sol_a.y[0]), self.sol_c(sol_a.y[0])]
+        return sol
     
