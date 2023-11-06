@@ -33,6 +33,11 @@ class BinaryReaction:
         """
         self.init_conc = init_conc
         self.tau = tau
+        # If k and s are not iterable, make them iterable.
+        if not hasattr(k, '__iter__'):
+            k = [k]
+        if not hasattr(s, '__iter__'):
+            s = [s]
         self.k = k
         self.s = s
 
@@ -54,10 +59,10 @@ class BinaryReaction:
         pack = np.array([a, a_star, k, s])
 
         # Define the rate equations
-        da = self._da(a, a_star, p, q)
-        da_star = self._da_star(a, a_star, p, q, r)
-        db = self._db(a_star, r)
-        dc = self._dc(a_star, r)
+        da = self._da(*pack)
+        da_star = self._da_star(*pack)
+        db = self._db(*pack)
+        dc = self._dc(*pack)
 
         # Return the rate equations
         return np.array([da, da_star, db, dc])
@@ -71,7 +76,7 @@ class BinaryReaction:
         np.ndarray
             The solution to the reaction system.
         """
-        sol = solve_ivp(self.rate_eq, (self.t[0], self.t[-1]), self.init_conc, t_eval=self.t)
+        sol = solve_ivp(self.rate_eq, (self.tau[0], self.tau[-1]), self.init_conc, t_eval=self.tau)
         return sol
     
     def _da(self, a, a_star, k, s):
