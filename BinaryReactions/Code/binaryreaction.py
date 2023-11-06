@@ -157,4 +157,79 @@ class BinaryReaction:
         """
         return self.rate_eq(t, y)
     
+
+class BinaryEquilibrium(BinaryReaction):
+    def __init__(self, init_conc: Iterable[float], tau: Iterable[float], k: Iterable[float], s: Iterable[float]) -> None:
+        super().__init__(init_conc, tau, k, s)
+
+    def _da(self, a, a_star, k, s):
+        return a**3/(a - s) - a**2
+
+    def _da_star(self, a, a_star, k, s):
+        return NotImplemented
+
+    def _db(self, a, a_star, k, s):
+        return s*a**2/(a - s)
+
+    def _dc(self, a, a_star, k, s):
+        return s*a**2/(a - s)
+
+    def a_star(self, a_solution: Iterable[float]):
+        """
+        Returns the equilibrium value of a_star.
+        NOT THE DERIVATIVE OF a_star.
+
+        Returns
+        -------
+        float
+            The equilibrium value of a_star.
+        """
+        a = a_solution
+
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        return a**2/(k*(a-s))
+    
+    def rate_eq(self, t:Iterable[float], y:Iterable[float]):
+        """
+        Define the rate equations for the BinaryReaction object.
+        These are in a dimensionless form. In the case of the
+        equilibrium approximation, the rate equations are different
+        and we do not need to solve for a_star.
+        """
+        # Unpack the state vector
+        a, b, c = y
+        
+        # Get rate constants
+        k = self.k[self.solve_for[0]]
+        s = self.s[self.solve_for[1]]
+
+        # Pack a vector to give to the rate equations
+        pack = np.array([a, None, k, s])
+
+        # Define the rate equations
+        da = self._da(*pack)
+        db = self._db(*pack)
+        dc = self._dc(*pack)
+
+        # Return the rate equations
+        return np.array([da, db, dc])
+
+    def solve(self) -> np.ndarray:
+        """
+        Solves the reaction system and returns the result.
+
+        Returns
+        -------
+        np.ndarray
+            The solution to the reaction system.
+        """
+        x0 = [self.init_conc[0], self.init_conc[2], self.init_conc[3]]
+        sol = solve_ivp(self.rate_eq, (self.tau[0], self.tau[-1]), x0, t_eval=self.tau)
+
+        sol = [sol.y[0], self.a_star(sol.y[0]), sol.y[1], sol.y[2]]
+
+        return sol
     
