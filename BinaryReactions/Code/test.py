@@ -14,7 +14,7 @@ tau = np.linspace(0, 10, 1000)
 
 # Define the rate constants
 k = 1000
-s = 1.1
+s = 0.1
 
 # Initialize the BinaryReaction object
 br = BinarySingular(init_conc, tau, k, s)

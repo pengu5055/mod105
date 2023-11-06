@@ -26,10 +26,10 @@ sol = br.solve()
 # Plot the results
 colors = pl.colorbrewer.sequential.Purples_7.hex_colors
 
-# plt.plot(tau, sol[0], c="red", label='a')
-# plt.plot(tau, sol[1], c="blue", label='a*')
+plt.plot(tau, sol[0], c="red", label='a')
+plt.plot(tau, sol[1], c="blue", label='a*')
 plt.plot(tau, sol[2], c="green", label='b')
-# plt.plot(tau, sol[3], c=colors[5], label='c')
+plt.plot(tau, sol[3], c=colors[5], label='c')
 
 plt.legend()
 plt.show()
