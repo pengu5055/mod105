@@ -9,13 +9,13 @@ from binaryreaction import BinaryEquilibrium
 
 # Define the initial concentrations
 k = 1000
-s = 10
+s = 100
 
 # Define the initial concentrations
 init_conc = [1, 0, 0, 0]
 
 # Define the time at which to evaluate the solution
-tau = numpy.linspace(0, 100, 1000)
+tau = numpy.linspace(0, 10, 1000)
 
 # Initialize the BinaryReaction object
 br = BinaryEquilibrium(init_conc, tau, k, s)
