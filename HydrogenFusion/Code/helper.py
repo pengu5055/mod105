@@ -11,6 +11,23 @@ def exp(x, a, b):
     """
     return a * np.exp(b * x)
 
+
+def quintic(x, a, b, c, d, e, f):
+    """
+    Quintic function.
+    """
+    return a + b * x + c * x**2 + d * x**3 + e * x**4 + f * x**5
+
+
+def fit_func(x, y, func):
+    """
+    Fit a function to data.
+    """
+    popt, pcov = curve_fit(func, x, y)
+    curve = func(x, *popt)
+    return curve, popt, pcov
+
+
 def find_decay_parameter(tau, sol, return_curve_fit=False):
     """
     Find the decay parameter of a solution by
