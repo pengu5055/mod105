@@ -19,6 +19,7 @@ rates2 = np.array([0.01, 2, 1, 0.1, 1])
 
 # Define the time points to evaluate the rate equations
 t_eval = np.linspace(0, 10, 1000)
+t_eval2 = np.linspace(0, 5, 1000)
 
 # Initialize the HydrogenFusion class
 hf = HydrogenFusion(init_conc, t_eval, rates)
@@ -27,8 +28,14 @@ hf = HydrogenFusion(init_conc, t_eval, rates)
 sol = hf.solve()
 
 # Repeat for the second set of initial concentrations
-hf2 = HydrogenFusion(init_conc2, t_eval, rates2)
+hf2 = HydrogenFusion(init_conc2, t_eval2, rates2)
 sol2 = hf2.solve()
+
+# Normalize the solutions to the sum of the initial concentrations
+# thus giving relative concentrations instead of absolute ones.
+sol.y = sol.y / np.sum(init_conc)
+sol2.y = sol2.y / np.sum(init_conc2)
+
 
 
 # Plot the results
@@ -47,8 +54,8 @@ ax[0].plot(sol.t, sol.y[4], label='$Br$', color=colors[4], linestyle=':')
 # NOTE: An idea is to make the curves dimensionless by normalizing to the sum
 # of the initial concentrations (thus giving relative concentrations).
 
-ax[0].set_xlabel('Time (s)')
-ax[0].set_ylabel('Concentration (M)')
+ax[0].set_xlabel('Time (arb. units)')
+ax[0].set_ylabel('Relative Concentration')
 
 # Add textbox with decay parameter and initial concentration
 textstr = '\n'.join((
@@ -79,7 +86,7 @@ textstr = '\n'.join((
     r'$x_0={}$'.format([str(x) for x in init_conc2], ),
     r'Rate: {}'.format([str(x) for x in rates2], )))
 props = dict(boxstyle='round', facecolor=colors[0], alpha=0.5)
-ax[1].text(0.38, 0.22, textstr, transform=ax[1].transAxes, fontsize=10,
+ax[1].text(0.38, 0.24, textstr, transform=ax[1].transAxes, fontsize=10,
         verticalalignment='top', bbox=props)
 
 ax[1].legend()
