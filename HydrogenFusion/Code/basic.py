@@ -67,7 +67,7 @@ props = dict(boxstyle='round', facecolor=colors[0], alpha=0.5)
 ax[0].text(0.30, 0.10, textstr, transform=ax[0].transAxes, fontsize=10,
         verticalalignment='top', bbox=props)
 
-ax[0].legend()
+ax[0].legend(loc="upper left", ncol=2)
 ax[0].grid(color="#424656", alpha=0.1)
 
 # --- Plot 2 ---
@@ -86,13 +86,13 @@ textstr = '\n'.join((
     r'$x_0={}$'.format([str(x) for x in init_conc2], ),
     r'Rate: {}'.format([str(x) for x in rates2], )))
 props = dict(boxstyle='round', facecolor=colors[0], alpha=0.5)
-ax[1].text(0.38, 0.24, textstr, transform=ax[1].transAxes, fontsize=10,
+ax[1].text(0.38, 0.45, textstr, transform=ax[1].transAxes, fontsize=10,
         verticalalignment='top', bbox=props)
 
 ax[1].legend()
 ax[1].grid(color="#424656", alpha=0.1)
 
-plt.suptitle("Example of the full solution to the rate equations")
+plt.suptitle("Example of the exact solution to the rate equations for the synthesis of HBr")
 plt.subplots_adjust(top=0.93, bottom=0.09, left=0.06, right=0.98)
 plt.show()
 
