@@ -47,7 +47,7 @@ class HydrogenFusion:
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return 0.5*s*x*y - 0.5*r*u*z
+        return 1*s*x*y - 1*r*u*z
     
     def _dv(self, t_eval, state):
         # Unpack the state vector
@@ -103,7 +103,7 @@ class HydrogenFusionStationaryH(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return -t*v*y 
+        return - 0.5 * t*v*y
     
     def _dv(self, t_eval, state):
         # Unpack the state vector
@@ -112,7 +112,7 @@ class HydrogenFusionStationaryH(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return q*z**2 - p*v - t*v*y
+        return q*z**2 - p*v - 0.5 * t*v*y
     
     def _dx(self, t_eval, state):
         # Unpack the state vector
@@ -121,7 +121,7 @@ class HydrogenFusionStationaryH(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return 2*t*v*y
+        return t*v*y
     
     def _dy(self, t_eval, state):
         # Unpack the state vector
@@ -139,7 +139,7 @@ class HydrogenFusionStationaryH(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return t*v*y + p*v - q*z**2
+        return 0.5 * t*v*y + p*v - q*z**2
     
 class HydrogenFusionStationaryBr(HydrogenFusion):
     def __init__(self, init_conc: Iterable[float], t_eval: Iterable[float], rates: Iterable[float]) -> None:
@@ -159,7 +159,7 @@ class HydrogenFusionStationaryBr(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return s*x*y - r*u*z
+        return 1*s*x*y - 1*r*u*z
     
     def _dv(self, t_eval, state):
         # Unpack the state vector
@@ -177,7 +177,7 @@ class HydrogenFusionStationaryBr(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
         
-        return q*z**2 - p*v - s*x*y + r*u*z
+        return q*z**2 - p*v - 0.5*s*x*y + 0.5*r*u*z
     
     def _dy(self, t_eval, state):
         # Unpack the state vector
@@ -186,7 +186,7 @@ class HydrogenFusionStationaryBr(HydrogenFusion):
         # Get rate coefficients
         p, q, r, s, t = self.rates
 
-        return r*u*z - s*x*y - q*z**2 + p*v
+        return 0.5*r*u*z - 0.5*s*x*y - 1*q*z**2 + 1*p*v
     
     def _dz(self, t_eval, state):
         # Unpack the state vector
