@@ -39,6 +39,7 @@ ax[0].plot(tau, sol.y[1], c=colors[3], label='$A^*$', ls=':')
 ax[0].plot(tau, sol.y[2], c=colors[4], label='$B$', ls='-.')
 ax[0].plot(tau, sol.y[3], c=colors[5], label='$C$')
 ax[0].legend()
+ax[0].grid(color="#424656", alpha=0.1)
 
 # Add textbox with parameters
 textstr = '\n'.join((
@@ -56,6 +57,7 @@ ax[1].plot(tau, sol2.y[1], c=colors[3], label='$A^*$', ls=':')
 ax[1].plot(tau, sol2.y[2], c=colors[4], label='$B$', ls='-.')
 ax[1].plot(tau, sol2.y[3], c=colors[5], label='$C$')
 ax[1].legend()
+ax[1].grid(color="#424656", alpha=0.1)
 
 # Add textbox with parameters
 textstr = '\n'.join((
