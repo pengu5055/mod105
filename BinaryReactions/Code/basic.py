@@ -46,7 +46,7 @@ textstr = '\n'.join((
     r'$k=%.2f$' % (k, ),
     r'$s=%.2f$' % (s, )))
 props = dict(boxstyle='round', facecolor=colors[1], alpha=0.5)
-ax[0].text(0.40, 0.20, textstr, transform=ax[0].transAxes, fontsize=12,
+ax[0].text(0.40, 0.80, textstr, transform=ax[0].transAxes, fontsize=12,
         verticalalignment='top', bbox=props)
 
 ax[0].set_ylabel('Relative Concentration')
@@ -64,7 +64,7 @@ textstr = '\n'.join((
     r'$k=%.2f$' % (k2, ),
     r'$s=%.2f$' % (s2, )))
 props = dict(boxstyle='round', facecolor=colors[1], alpha=0.5)
-ax[1].text(0.45, 0.20, textstr, transform=ax[1].transAxes, fontsize=12,
+ax[1].text(0.45, 0.80, textstr, transform=ax[1].transAxes, fontsize=12,
         verticalalignment='top', bbox=props)
 
 ax[1].set_ylabel('Relative Concentration')

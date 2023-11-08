@@ -67,7 +67,7 @@ lgnd = ax[0].legend([(l_A1, l_A2, l_A3),
                     (l_BC1, l_BC2, l_BC3),],
                     [r'$A$', r'$A^*$', r'$B+C$'],
                     handler_map={tuple: HandlerTuple(ndivide=None)},
-                    loc='upper center', ncols=3, fontsize=11)
+                    loc='upper left', ncols=1, fontsize=10)
 
 ax[0].grid(color="#424656", alpha=0.1)
 
@@ -120,6 +120,6 @@ cbar.set_label(r'$s$')
 
 
 
-plt.suptitle("Exact solutions of the Binary reaction for different values of $s$")
+plt.suptitle("Solutions of the Binary reaction for different values of $s$")
 plt.subplots_adjust(left=0.06, right=0.98, bottom=0.10, top=0.92)
 plt.show()
