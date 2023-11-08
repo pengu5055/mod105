@@ -7,6 +7,7 @@ Basic test of the BinaryReactions class.
 """
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 from matplotlib.legend_handler import HandlerTuple
 import palettable as pl
 import cmasher as cmr
@@ -88,6 +89,37 @@ ax[0].set_ylabel('Relative Concentration')
 ax[0].set_xlabel('Time (arb. units)')
 
 
-plt.suptitle("Example Binary Reaction solutions")
+# --- Continuous plot ---
+solutions = []
+
+# Define the parameters s
+s = np.linspace(0.01, 1, 100)  # NOTE: After debug purposes, change to 100
+
+# Solve the system for each s
+for i in range(len(s)):
+    print(f"Calculating solution {i+1}/{len(s)}")
+    br = BinaryReaction(init_conc, tau, k, s[i])
+    solutions.append(br.solve())
+
+# Plot the results.
+colors = cmr.take_cmap_colors(pl.scientific.sequential.Acton_10.mpl_colormap.reversed(),
+                                len(solutions), cmap_range=(0., 0.7), return_fmt='hex')
+
+for i in range(len(solutions)):
+    ax[1].plot(tau, solutions[i].y[2] + solutions[i].y[3], c=colors[i])
+
+ax[1].grid(color="#424656", alpha=0.1)
+ax[1].set_ylabel('Relative Concentration')
+ax[1].set_xlabel('Time (arb. units)')
+
+norm = mpl.colors.LogNorm(vmin=s[0], vmax=s[-1])
+sm = plt.cm.ScalarMappable(cmap=pl.scientific.sequential.Acton_10.mpl_colormap, norm=norm)
+
+cbar = fig.colorbar(sm, ax=ax[1], orientation='vertical', pad=0.01)
+cbar.set_label(r'$s$')
+
+
+
+plt.suptitle("Solutions of the Binary reaction for different values of $s$")
 plt.subplots_adjust(left=0.06, right=0.98, bottom=0.10, top=0.92)
 plt.show()
