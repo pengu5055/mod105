@@ -3,10 +3,27 @@ Implementation of the Chemical Clock model via
 cubic autocatalysis.
 """
 import numpy as np
+from scipy.integrate import solve_ivp
 
 class ChemicalClock:
     def __init__(self,
+                 init_conc: np.ndarray,
+                 t: np.ndarray,
+                 rates: np.ndarray,
+                 p_fast_factor: float = 100,
+                 q_fast_factor: float = 100,
                  ) -> None:
+        """
+        A simple attempt at modeling the chemical clock
+        based on iodine and iodide concentrations.
+        """
+        self.init_conc = init_conc
+        self.t = t
+        self.rates = rates
+        self.p_slow = rates[0]
+        self.q_slow = rates[1]
+        self.p_fast = rates[0] * p_fast_factor
+        self.q_fast = rates[1] * q_fast_factor
         pass
 
     def model_eq(self, t: float, state: np.ndarray) -> np.ndarray:
@@ -39,4 +56,8 @@ class ChemicalClock:
         """
         Solve the model equations.
         """
-        pass
+        sol = solve_ivp(self.model_eq, (self.t[0], self.t[-1]), 
+                        self.init_conc, method='LSODA', t_eval=self.t)
+        return sol
+    
+
