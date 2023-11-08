@@ -80,16 +80,16 @@ class BinaryReaction:
         return sol
     
     def _da(self, a, a_star, k, s):
-        return k*a*a_star - a**2
+        return 1/2*k*a*a_star - a**2 + 1/2*a**2
     
     def _da_star(self, a, a_star, k, s):
-        return a**2 - k*a*a_star - s*k*a_star
+        return 1/2*a**2 - 1/2*k*a*a_star - s*k*a_star
     
     def _db(self, a, a_star, k, s):
-        return k*s*a_star
+        return 1/2*k*s*a_star
     
     def _dc(self, a, a_star, k, s):
-        return k*s*a_star
+        return 1/2*k*s*a_star
 
     def __repr__(self) -> str:
         """
