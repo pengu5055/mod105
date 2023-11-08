@@ -2,9 +2,6 @@
 Exact solution for the three parameters specified
 in the given task.
 """
-"""
-Basic test of the BinaryReactions class.
-"""
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
