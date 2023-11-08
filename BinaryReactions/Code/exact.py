@@ -7,7 +7,7 @@ Basic test of the BinaryReactions class.
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
+from matplotlib.legend_handler import HandlerTuple
 import palettable as pl
 import cmasher as cmr
 from binaryreaction import BinaryReaction
@@ -42,38 +42,47 @@ sol3 = br.solve()
 
 # Plot the results.
 fig, ax = plt.subplots(1, 2, figsize=(10, 5))
-colors_1 = pl.cartocolors.sequential.TealGrn_7.hex_colors
-colors_2 = cmr.take_cmap_colors(pl.cartocolors.sequential.PurpOr_7.mpl_colormap,
-                                7, cmap_range=(0.2, 1.0), return_fmt='hex')
-colors_3 = cmr.take_cmap_colors(pl.colorbrewer.sequential.YlOrRd_7.mpl_colormap,
-                                7, cmap_range=(0.2, 1.0), return_fmt='hex')
+custom_colors = ["#845ec2", "#c031b5", "#cf3d2a"]
+# A lighter version of custom_colors
+box_colors = ["#a8a8c0", "#d17fb0", "#d88a7a"]
 
-l_A1 = ax[0].plot(tau, sol.y[0], c=colors_1[2], ls='--')
-ax[0].plot(tau, sol.y[1], c=colors_1[3], ls=':')
-ax[0].plot(tau, sol.y[2], c=colors_1[4], ls='-.')
-ax[0].plot(tau, sol.y[3], c=colors_1[5])
+# Rather plot B + C
 
-l_A2 = ax[0].plot(tau, sol2.y[0], c=colors_2[2], ls='--')
-ax[0].plot(tau, sol2.y[1], c=colors_2[3], ls=':')
-ax[0].plot(tau, sol2.y[2], c=colors_2[4], ls='-.')
-ax[0].plot(tau, sol2.y[3], c=colors_2[5])
+l_A1, = ax[0].plot(tau, sol.y[0], c=custom_colors[0], ls='--')
+l_Astar1, = ax[0].plot(tau, sol.y[1], c=custom_colors[0], ls=':')
+l_BC1, = ax[0].plot(tau, sol.y[2] + sol.y[3], c=custom_colors[0])
 
-l_A3 = ax[0].plot(tau, sol3.y[0], c=colors_3[2], ls='--')
-ax[0].plot(tau, sol3.y[1], c=colors_3[3], ls=':')
-ax[0].plot(tau, sol3.y[2], c=colors_3[4], ls='-.')
-ax[0].plot(tau, sol3.y[3], c=colors_3[5])
+l_A2, = ax[0].plot(tau, sol2.y[0], c=custom_colors[1], ls='--')
+l_Astar2, = ax[0].plot(tau, sol2.y[1], c=custom_colors[1], ls=':')
+l_BC2, = ax[0].plot(tau, sol2.y[2]+sol2.y[3], c=custom_colors[1])
 
+l_A3, = ax[0].plot(tau, sol3.y[0], c=custom_colors[2], ls='--')
+l_Astar3, = ax[0].plot(tau, sol3.y[1], c=custom_colors[2], ls=':')
+l_BC3, = ax[0].plot(tau, sol3.y[2]+sol3.y[3], c=custom_colors[2])
 
-ax[0].legend()
+# Add legend
+lgnd = ax[0].legend([(l_A1, l_A2, l_A3),
+                    (l_Astar1, l_Astar2, l_Astar3),
+                    (l_BC1, l_BC2, l_BC3),],
+                    [r'$A$', r'$A^*$', r'$B+C$'],
+                    handler_map={tuple: HandlerTuple(ndivide=None)},
+                    loc='upper left', ncols=1, fontsize=10)
+
 ax[0].grid(color="#424656", alpha=0.1)
 
-# Add textbox with parameters
-textstr = '\n'.join((
-    r'$k=%.2f$' % (k, ),
-    r'$s=%.2f$' % (s, )))
-props = dict(boxstyle='round', facecolor=colors_1[1], alpha=0.5)
-ax[0].text(0.40, 0.20, textstr, transform=ax[0].transAxes, fontsize=12,
+# Add textboxes with parameters
+textstr = r'$s_1=%.2f$' % (s, )
+props = dict(boxstyle='round', facecolor=custom_colors[0], alpha=0.5)
+ax[0].text(0.80, 0.60, textstr, transform=ax[0].transAxes, fontsize=11,
         verticalalignment='top', bbox=props)
+textstr = r'$s_2=%.2f$' % (s2, )
+props = dict(boxstyle='round', facecolor=custom_colors[1], alpha=0.5)
+ax[0].text(0.80, 0.50, textstr, transform=ax[0].transAxes, fontsize=11,
+        verticalalignment='top', bbox=props)
+textstr = r'$s_3=%.2f$' % (s3, )
+props = dict(boxstyle='round', facecolor=custom_colors[2], alpha=0.5)
+ax[0].text(0.965, 0.40, textstr, transform=ax[0].transAxes, fontsize=11,
+        verticalalignment='top', horizontalalignment='right', bbox=props)
 
 ax[0].set_ylabel('Relative Concentration')
 ax[0].set_xlabel('Time (arb. units)')
