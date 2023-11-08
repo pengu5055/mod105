@@ -17,8 +17,8 @@ rates = np.array([1, 1, 1, 1, 1])
 t_eval = np.linspace(0, 10, 1000)
 
 solutions = []
-H2_range = np.linspace(0.1, 10, 1000)
-Br2_range = np.linspace(0.1, 10, 1000)
+H2_range = np.linspace(0.1, 10, 100)
+Br2_range = np.linspace(0.1, 10, 100)
 
 for i, H2 in enumerate(H2_range):
     print(f"Progress: {i}/{len(H2_range)}")
@@ -34,7 +34,7 @@ for i, H2 in enumerate(H2_range):
 
 solutions = np.array(solutions)
 df = pd.DataFrame(solutions, index=H2_range, columns=Br2_range)
-df.to_hdf('quintic-pars.h5', key='Fit', mode='w', complevel=9)
+df.to_hdf('./HydrogenFusion/Results/quintic-pars.h5', key='Fit', mode='w', complevel=9)
 
 # Plot
 fig, ax = plt.subplots(2, 3, figsize=(10, 10))
