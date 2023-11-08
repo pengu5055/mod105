@@ -24,8 +24,7 @@ sol = br.solve()
 
 # Plot the results
 
-colors = pl.cartocolors.sequential.agSunset_7.hex_colors
-colors2 = pl.cartocolors.sequential.TealGrn_7.hex_colors
+colors = pl.cartocolors.sequential.TealGrn_7.hex_colors
 
 plt.plot(tau, sol[0], c=colors[0], label='a')
 plt.plot(tau, sol[1], ls=":", c=colors[1], label='a*')

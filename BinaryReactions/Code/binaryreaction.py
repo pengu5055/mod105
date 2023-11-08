@@ -86,10 +86,10 @@ class BinaryReaction:
         return a**2 - k*a*a_star - s*k*a_star
     
     def _db(self, a, a_star, k, s):
-        return k*a_star
+        return k*s*a_star
     
     def _dc(self, a, a_star, k, s):
-        return k*a_star
+        return k*s*a_star
 
     def __repr__(self) -> str:
         """
