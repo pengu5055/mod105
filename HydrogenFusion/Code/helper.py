@@ -52,8 +52,8 @@ def distance(a, b):
 
 def find_best_fit(func, data):
     # Define the range of parameters to search over
-    k_range = np.linspace(0, 1000, 10)
-    m_range = np.linspace(0, 1000, 10)
+    k_range = np.linspace(0, 1000, 1000)
+    m_range = np.linspace(0, 1000, 1000)
 
     # Initialize the best fit parameters
     best_k = 0
