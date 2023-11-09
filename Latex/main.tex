@@ -45,16 +45,54 @@
 \tableofcontents
 \newpage
 \section{Uvod}
-Čeprav smo fiziki na študiju fizike, ne moremo zanikati, da je Kemija pomembna veda. A izkaže se, da 
-ni vedno najbolj ugodno narediti prav vsak eksperiment, v živo. Zato se je razvil računalniški pristop,
+Čeprav smo fiziki in smo na študiju fizike, ne moremo zanikati, da je tudi kemija pomembna veda. A izkaže se, da 
+ni vedno najbolj ugodno narediti prav vsak eksperiment v živo. Zato se je razvil računalniški pristop,
 ki nam omogoča, da lahko simuliramo različne kemijske reakcije. Pravzaprav je pristop praktično analogen
-prejšnji nalogi o populaciji. No vsaj ko naredimo ustrezne približke. V resnici, če bi hoteli brez kompromisa
-modelirati kemijske procese, bi nas to drago stalo. To mislim dobesedno, ker unfortunately, še nismo tako daleč 
-v razvoju, da bi bili strežniški dostopni vse, pa tudi v smislu figurativnega pomena, ker bi brez ustreznih
-približkov dobivali čisto napačne prepodatke.\\
+prejšnji nalogi o populacijskih modelih. No vsaj ko naredimo ustrezne približke. V resnici, če bi hoteli brez kompromisa
+modelirati kemijske procese, bi nas to drago stalo. To mislim dobesedno, ker če bi reševali t.i. \textbf{Chemical master
+equation} bi dobili sistem ODE s toliko komponent, kolikor je možnih stanj sistema. To pa je, če želimo simulirati nek
+makroskopski proces, zelo veliko. Zato se bomo v tej nalogi omejili na reševanje \textbf{Reaction rate} enačb, ki so
+približek prej omenjenih enačb. V tej nalogi bomo spoznali modeliranje kemijskih procesov na podlagi treh primerov.\\
 
-V tej nalogi bomo spoznali modeliranje kemijskih procesov na podlagi treh primerov. V prvem primeru bomo
-modelirali Binarno kemijsko reakcijo, v drugi uri bomo počasi ž
+\subsection{Binarna reakcija}
+Za prvi primer si poglejmo primer binarne reakcije. Kemijske procese lahko opišemo kot:
+
+\begin{gather}
+    A + A \overset{p}{\underset{q}{\rightleftharpoons}} A + A^*\>,\\
+    A^* \overset{r}{\rightarrow} B + C\>.
+\end{gather}
+
+Rate enačbe v brezdimenzijski obliki za proces dobimo tako, da vse koncentracije normiramo
+z začetno koncentracijo snovi $A$ $[A](0)$. S tem bomo lahko uvedli še nove parametre. Takole:
+
+\begin{gather}
+    \dot{a} = \frac{1}{2} kaa^* - a^2 + \frac{1}{2}a^2\>,\\
+    \dot{a^*} = \frac{1}{2}a^2 - \frac{1}{2} kaa^* - ska^*\>,\\
+    \dot{b} = \frac{1}{2} ska^*\>,\\
+    \dot{c} = \frac{1}{2} ska^*\>.
+\end{gather}
+
+kjer je $k = \frac{p}{q}$ in $s = \frac{r}{q[A](0)}$. Odvod pa je zdaj po $d\tau = p[A](0)\>dt$. Lahko
+predpostavimo, da v ravnovesnem stanju velja $\dot{a^*} = 0$, kar nam omogoči, da izrazimo $a^*$ in s tem 
+dobimo nov set enačb:
+
+\begin{gather}
+    \dot{a} = \frac{a^3}{4k(s + a/2)} - a^2\>,\\
+    \dot{a^*} = 0\>,\\
+    \dot{b} = \frac{sa^2}{4(s + a/2)}\>,\\
+    \dot{c} = \frac{sa^2}{4(s + a/2)}\>.
+\end{gather}
+
+\subsection{Sinteza vodikovega bromida}
+Za drugi primer pogledamo primer sinteze vodikovega bromida. Sinteza je sestavljena iz več stopnj. Te lahko
+zapišemo kot:
+
+\begin{gather}
+    \mathrm{Br}_2 \overset{p}{\underset{q}{\rightleftharpoons}} 2\mathrm{Br}\>,\\
+    \mathrm{Br} + \mathrm{H}_2 \overset{r}{\underset{s}{\rightleftharpoons}} \mathrm{HBr} + \mathrm{H}\>,\\
+    \mathrm{H} + \mathrm{Br}_2 \overset{t}{\rightarrow} \mathrm{HBr} + \mathrm{Br}\>.
+\end{gather}
+
 
 \section{Naloga}
 
