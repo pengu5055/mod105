@@ -11,6 +11,7 @@
 \usepackage{siunitx}
 \usepackage{multimedia}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
 \setlength\parindent{0pt}
 
 \newcommand{\ddd}{\mathrm{d}}
@@ -163,8 +164,72 @@ Na koncu pa še narišimo potek koncentracij $m$, $n$ za kemijsko uro, kjer spre
 hitrosti glavnih reakcij.\\
 
 \section{Opis reševanja}
+Za to nalogo se mi zdi, da sem bil nekoliko uninspired. Imel sem velike želje, ampak je žal moja 
+spužva za razmišljanje imela druge načrte ter mi je začela delat probleme. Zato sem ostal še kar 
+pri železni srajci in naredil isto kot pri prejšnji nalogi. \\
+
+Za vsak primer sem naredil svoj razred, ki ima metode za integracijo in vsebuje enačbe modela. Takole
+se lahko instancira razred za različne parametre zelo hitro in z enim klicem dobiš rešitev. V ta namen sem
+uporabljal standardni nabor knjižnic za numerično računanje v Pythonu, t.j. \texttt{numpy} in \texttt{scipy} in
+seveda \texttt{matplotlib} za risanje. Za integrator, kar je verjetno še najbolj zanimivo, sem uporabljal
+\texttt{scipy.integrate.solve\_ivp} z metodo \texttt{RK45} in \texttt{LSODA}. \\
 
 \section{Rezultati}
+\subsection{Binarna reakcija}
+Verjetno je najbolje, da kar začnemo z rezultati. Najprej bi rad samo pokazal, kakšna je rešitev za
+binarno reakcijo. To je prikazano na sliki \ref{fig:binarna} za dva primera. Za prvi primer sem že vzel
+parametre iz naloge, v drugem pa sem jih spremenil, tako da se vidi tudi nekaj dogajanja z $a^*$, ki sicer
+v prvem primeru ostane konstantno na $0$.\\
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../BinaryReactions/Images/basic-solution.png}
+    }
+    \caption{Rešitev za binarno reakcijo.}
+    \label{fig:binarna}
+\end{figure}
+
+Iz te slike je precej jasno, da so parametri na levi bolj primerni za hitro sintezo $b$ in $c$, če je
+naš cilj seveda. Lahko pa sta to stranska produkta, ki ju ne želimo. V tem primeru je boljši desni primer,
+kjer se $a^*$ ne zadržuje na $0$, a tam je treba biti previden, ker se $a^*$ poveča nato pa spet zmanjša, 
+torej bi morali v tem primeru reakcijo zaustaviti, ko je $a^*$ na vrhuncu.\\
+
+Če si pogledamo zdaj zahtevane rešitve, dobimo sliko \ref{fig:binarna-req}. Zdelo se mi je zanimivo,
+da bi za pokazal še kako se bolj zvezno spreminja vsota $b + c$, zato sem jo tudi narisal. Tu bi bilo 
+smiselno potem, da sta to produkta, ki ju želimo.\\
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../BinaryReactions/Images/exact-solution.png}
+    }
+    \caption{Točna rešitev.}
+    \label{fig:binarna-req}
+\end{figure}
+
+Vidimo, da za majhne parametre $s$ hitrost limitira proti neki, recimo temu, kritični hitrosti. Tukaj 
+sicer nisem uspel lepo narisati limitne hitrosti. Je pa to storjeno na kasnejšem primeru. Za velike parametre
+pa hitrost limitira proti $0$. To je seveda pričakovano, saj parameter $s$ otežuje reakcijo iz $a^*$ v $b$ in $c$. \\
+
+V približku ravnovesnega stanja pa sem dobil sliko \ref{fig:binarna-stac}. Tu se koncentracija zelo hitro
+izravna, torej lahko z parametrom $s$ zelo dobro vplivamo na koncentracijo $b$ in $c$ v končnem stanju. To bi 
+bilo koristno. če bi bila ta reakcija precursor za nek daljši proces.\\
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../BinaryReactions/Images/equilibrium-solution.png}
+    }
+    \caption{Rešitev v približku ravnovesnega stanja.}
+    \label{fig:binarna-stac}
+\end{figure}
+
+Tu pa sem uspel dobiti limitno krivuljo, tako da sem vzel $s = 10^{100}$ (in še velikostne rede okoli) in ugotovil,
+da se družina krivulj zbere v krivulji, ki kaže proti vsoti $0.5$. Zdaj pri drugi evalvaciji mi sicer da misliti, da sem
+se mogoče pri normalizaciji rešitve zmotil za faktor $2$, ker bi morala vsota koncentracij biti $1$. Ampak recimo, 
+da se razume, kaj je mišljeno.\\
+
 
 
 \section{Komentarji in izboljšave}
