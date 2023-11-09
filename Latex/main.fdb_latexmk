@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1699481645 "main.aux" "main.bbl" "main" 1699481646 0
+["bibtex main"] 1699481645 "main.aux" "main.bbl" "main" 1699494346 0
   "./sources.bib" 1697060406 585 59db498271dfb5e1811a288748c6fc20 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1684972800 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1699481645 1326 efdbee3180170e8d28965b2cb76d057c "pdflatex"
+  "main.aux" 1699494346 1326 efdbee3180170e8d28965b2cb76d057c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1699481645 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699481646 0
-  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699481643 1274 921e905b0cdadfb3fea3aab052b0d555 ""
+["pdflatex"] 1699494345 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699494346 0
+  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699494345 2168 7a26bcf143663f6efaca96126228826a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -90,11 +90,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1697067503 4603192 0eff5d941e341e7e38e369b967619829 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1698184798 7863017 0e78b0df0d83ada11ff4dea35803c082 ""
   "logo.png" 1697060406 8303 7b15c7eec596b95d22d9e8d01528be9a ""
-  "main.aux" 1699481645 1326 efdbee3180170e8d28965b2cb76d057c "pdflatex"
+  "main.aux" 1699494346 1326 efdbee3180170e8d28965b2cb76d057c "pdflatex"
   "main.bbl" 1699481645 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.out" 1699481645 609 6dbb6e0b22aa26b1004ac1d435cf1dcb "pdflatex"
-  "main.tex" 1699481643 1274 921e905b0cdadfb3fea3aab052b0d555 ""
-  "main.toc" 1699481645 421 7a1b67f5b1cf06999da3820a3c9d6757 "pdflatex"
+  "main.out" 1699494346 609 6dbb6e0b22aa26b1004ac1d435cf1dcb "pdflatex"
+  "main.tex" 1699494345 2168 7a26bcf143663f6efaca96126228826a ""
+  "main.toc" 1699494346 421 7a1b67f5b1cf06999da3820a3c9d6757 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
