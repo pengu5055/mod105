@@ -93,6 +93,41 @@ zapišemo kot:
     \mathrm{H} + \mathrm{Br}_2 \overset{t}{\rightarrow} \mathrm{HBr} + \mathrm{Br}\>.
 \end{gather}
 
+To lahko z sistemom ODE opišemo kot prej takole:
+
+\begin{gather}
+    \dot{u} = sxy - ruz\>,\\
+    \dot{v} = qz^2 - pv - \frac{1}{2}tvy\>,\\
+    \dot{x} = \frac{1}{2}tvy - \frac{1}{2}sxy + \frac{1}{2}ruz\>,\\
+    \dot{y} = \frac{1}{2}ruz - \frac{1}{2}sxy + \frac{1}{2}tvy\>,\\
+    \dot{z} = \frac{1}{2}tvy + pv - qz^2\>,
+\end{gather}
+
+kjer je $u = [\mathrm{H}_2]$, $v = [\mathrm{Br}_2]$, $x = [\mathrm{HBr}]$, $y = [\mathrm{H}]$ in $z = [\mathrm{Br}]$.
+Tudi ta sistem lahko zapišemo v približku stacionarnega stanja, kjer velja $\dot{y} = 0$ in dobimo:
+
+\begin{gather}
+    \dot{u} = -\frac{1}{2}tvy\>,\\
+    \dot{v} = qz^2 - pv - \frac{1}{2}tvy\>,\\
+    \dot{x} = tvy\>,\\
+    \dot{y} = 0\>,\\
+    \dot{z} = \frac{1}{2}tvy + pv - qz^2\>.
+\end{gather}
+
+Na predavanjih je profesor omenil še možnost stacionarnega stanja za $\dot{z} = 0$, ampak meni ni uspelo
+uspešno pognati reakcije v tem primeru.\\
+
+\subsection{Kemijska ura}
+Za konec pa še bolj zabaven primer, kemijska ura. Princip je, da imamo dve reakciji, ki se odvijata vzporedno.
+Prva reakcija je hitra, druga pa počasna. Ko se prva reakcija konča, se začne druga in s tem se spremeni barva
+raztopine. Pravzaprav imamo dve reakciji za vsako od barv, torej dve hitri in dve počasni. To lahko zapišemo kot:
+
+\begin{gather}
+    \mathrm{S}\mathrm{O}_8^{2-} + \mathrm{I}^- \overset{p_\mathrm{slow}}{\longrightarrow} \mathrm{I}\mathrm{S}_2\mathrm{O}_8^{3-}\>,\\
+    2\mathrm{S}_2\mathrm{O}_3^{2-} + \mathrm{I}_2 \overset{p_\mathrm{fast}}{\longrightarrow} \mathrm{S}_4\mathrm{O}_6^{2-} + 2\mathrm{I}^-\>,\\
+    \mathrm{S}_{2}\mathrm{O}_3^{2-} + \mathrm{I_2} \overset{q_\mathrm{slow}}{\longrightarrow} \mathrm{I}\mathrm{S}_2\mathrm{O}_3^{-} + \mathrm{I}^-\>,\\
+    \mathrm{I}\mathrm{S}_2\mathrm{O}_3^{-} + \mathrm{S}_2\mathrm{O}_3^{2-} \overset{q_\mathrm{fast}}{\longrightarrow} \mathrm{S}_4\mathrm{O}_6^{2-} + \mathrm{I}^-\>.
+\end{gather}
 
 \section{Naloga}
 

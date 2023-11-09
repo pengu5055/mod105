@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1699514077 "main.aux" "main.bbl" "main" 1699514208 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1699515505 -1
   "./sources.bib" 1697060406 585 59db498271dfb5e1811a288748c6fc20 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1684972800 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1699514207 1582 305f4aa3d8fca151ee734262ea2dc86e "pdflatex"
+  "main.aux" 1699515505 1701 5118e752ec1766a2f22b18d2b6b9259b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1699514207 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699514208 0
-  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699514207 3792 74cc388cc0ed9f3a688e1ea22186482e ""
+["pdflatex"] 1699515504 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699515505 0
+  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699515504 5692 0e8c54e963f9c4cbb7d40cc3beef4a51 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -21,6 +21,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
@@ -96,11 +97,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1697067503 4603192 0eff5d941e341e7e38e369b967619829 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1698184798 7863017 0e78b0df0d83ada11ff4dea35803c082 ""
   "logo.png" 1697060406 8303 7b15c7eec596b95d22d9e8d01528be9a ""
-  "main.aux" 1699514207 1582 305f4aa3d8fca151ee734262ea2dc86e "pdflatex"
-  "main.bbl" 1699514077 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.out" 1699514207 942 b47594bcb74310a64c6f20b1c3af8abf "pdflatex"
-  "main.tex" 1699514207 3792 74cc388cc0ed9f3a688e1ea22186482e ""
-  "main.toc" 1699514207 595 e750d500f9f1c290df823a53b8ad6e7d "pdflatex"
+  "main.aux" 1699515505 1701 5118e752ec1766a2f22b18d2b6b9259b "pdflatex"
+  "main.bbl" 1699514811 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
+  "main.out" 1699515505 1062 914704c5de7875fa01a37cf0908c7297 "pdflatex"
+  "main.tex" 1699515504 5692 0e8c54e963f9c4cbb7d40cc3beef4a51 ""
+  "main.toc" 1699515505 673 8aee094abdae8a9d52acd1cb549bb6fc "pdflatex"
   (generated)
   "main.aux"
   "main.log"
