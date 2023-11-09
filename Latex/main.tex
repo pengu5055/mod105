@@ -316,11 +316,70 @@ se tako nikamor ne premakne.
     \label{fig:br-heatmap}
 \end{figure}
 
+\subsection{Kemijska ura}
+Ta del naloge sem še najbolj na hitro rešil in si želim, da bi si lahko vzel več časa zanj. 
+Nisem dejansko prišel do oscilacij, kar bi bilo sicer zelo kul. Vseeno poglejmo prvo primer 
+lepe splošne rešitve prikazane na sliki \ref{fig:clock-basic}. 
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.8\textwidth]{../ChemicalClock/Images/nice-basic-solution.png}
+    }
+    \caption{Splošna rešitev kemijske ure.}
+    \label{fig:clock-basic}
+\end{figure}
+
+Nisem popolnoma prepričan če je to res to kar smo želeli dobiti, ampak koncentraciji Joda in
+Jodida se zamenjata torej bi prišlo do spremembe barve. Nisem pa čisto prepričan zakaj potem,
+se ne spremeni nazaj. V sistem sem dal dovoljšen presežek tio in persulfata, da bi moralo
+priti do tega. Za zahtevana razmerja hitrosti glavnih reakcij sem potem dobil takšno sliko 
+\ref{fig:clock-req}.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.8\textwidth]{../ChemicalClock/Images/basic-solutions.png}
+    }
+    \caption{Rešitev kemijske ure za zahtevana razmerja hitrosti.}
+    \label{fig:clock-req}
+\end{figure}
+
+Ta graf mi sila ni všeč, ker je obupno nepregleden. Vidi se, da se koncentracija Joda in Jodida
+res zamenjata v primeru 1 in 3, ampak v primeru 2 pride pa do neke čudnosti, kjer koncentraciji 
+skoraj enako padata. Tako ali tako se primera 1 sploh ne vidi zaradi tako različnih časovnih skal.
+Come to think of it, so tudi izmerjeni časi reakcij zelo nenavadni. Nekaj je šlo narobe. A vseeno 
+imam še zadnjo sliko kjer sem risal čas potreben, da se reakcija ustavi v odvisnosti od razmerja
+hitrosti. To je prikazano na sliki \ref{fig:clock-speed}.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.8\textwidth]{../ChemicalClock/Images/stop-time.png}
+    }
+    \caption{Čas potreben, da se reakcija ustavi v odvisnosti $[\mathrm{S}_2\mathrm{O}_3^{2-}](0)$.}
+    \label{fig:clock-speed}
+\end{figure}
+
+Tu sem imel časovno območje $[0, 1000]$, kar je precej veliko. Pa vidimo da po 5 delih $[\mathrm{S}_2\mathrm{O}_3^{2-}]$
+rabi reakcij tako dolgo da se ustavi, da ni več znotraj tega območja. Nisem prepričan zakaj ne gre čas proti $0$ za 
+padajočo začetno koncentracijo. To se zdi neka čudna diskrepanca. Ampak tu bom moral zaključiti s poročilom,
+ker mi zmanjkuje časa. Ura je 10:14 AM na četrtek.\\
 
 
 \section{Komentarji in izboljšave}
+Želim si, da mi možgan ne bi ta teden delal toliko težav in serviral brezvezne težke vsebine.
+To bi mi omogočilo, da bi actually naredil kvalitetno nalogo, ker se mi zdi, da je tole zelo bedna izvedba
+in tokrat ni to posledica tega, da bi sam raziskoval neko vzporedno področje. \\
 
-\newpage
-\bibliographystyle{unsrt}
-\bibliography{sources}
+Ampak ne vem če je kaj kar lahko še naredim. Zdravila že jemljem, v terapijo hodim že dolgo. Včasih 
+se pač poslabša in je treba to sprejeti. Upam, da se bo kmalu spet izboljšalo. \\
+
+Drugače pa ja, sem imel veliko željo narediti še primer valovanja oksidacije, ki ga je profesor omenil,
+ampak ni bilo možno ta teden. 
+
+
+%\newpage
+%\bibliographystyle{unsrt}
+%\bibliography{sources}
 \end{document}
