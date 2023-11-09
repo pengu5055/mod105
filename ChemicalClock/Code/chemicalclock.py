@@ -61,3 +61,32 @@ class ChemicalClock:
         return sol
     
 
+class SimpleClock(ChemicalClock):
+    def __init__(self, init_conc: np.ndarray,
+                  t: np.ndarray, rates: np.ndarray, 
+                  p_fast_factor: float = 100, q_fast_factor: float = 100) -> None:
+        # super().__init__(init_conc, t, rates, p_fast_factor, q_fast_factor)
+        self.init_conc = init_conc
+        self.t = t
+        self.rate = rates[0]
+
+
+    def model_eq(self, t: float, state: np.ndarray) -> np.ndarray:
+        """
+        The model equations for the chemical clock.
+        """
+        # Unpack the state vector
+        gamma, beta = state
+
+        # Define the rate constants
+        rate_factor = self.rate
+
+        # Define the model equations
+        dgamma = - rate_factor * gamma * beta**2
+        dbeta = rate_factor * gamma * beta**2
+
+        # Return the model equations
+        return np.array([dgamma, dbeta])
+    
+
+
