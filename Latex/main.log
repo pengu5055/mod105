@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.24)  9 NOV 2023 09:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.24)  9 NOV 2023 09:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -388,7 +388,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package translations Info: no dictionary file `translations-basic-dictionary-slovenian.trsl' found. on input line 21.
-<logo.png, id=45, 220.67175pt x 141.22992pt>
+<logo.png, id=49, 220.67175pt x 141.22992pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 24.
@@ -439,7 +439,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--183
 
  []
 
-<../BinaryReactions/Images/basic-solution.png, id=127, 722.7pt x 361.35pt>
+<../BinaryReactions/Images/basic-solution.png, id=132, 722.7pt x 361.35pt>
 File: ../BinaryReactions/Images/basic-solution.png Graphic file (type png)
 <use ../BinaryReactions/Images/basic-solution.png>
 Package pdftex.def Info: ../BinaryReactions/Images/basic-solution.png  used on input line 188.
@@ -454,7 +454,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--201
 
  []
 
-<../BinaryReactions/Images/exact-solution.png, id=129, 722.7pt x 361.35pt>
+<../BinaryReactions/Images/exact-solution.png, id=134, 722.7pt x 361.35pt>
 File: ../BinaryReactions/Images/exact-solution.png Graphic file (type png)
 <use ../BinaryReactions/Images/exact-solution.png>
 Package pdftex.def Info: ../BinaryReactions/Images/exact-solution.png  used on input line 206.
@@ -469,7 +469,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--218
 
  []
 
-<../BinaryReactions/Images/equilibrium-solution.png, id=139, 722.7pt x 361.35pt>
+<../BinaryReactions/Images/equilibrium-solution.png, id=145, 722.7pt x 361.35pt>
 File: ../BinaryReactions/Images/equilibrium-solution.png Graphic file (type png)
 <use ../BinaryReactions/Images/equilibrium-solution.png>
 Package pdftex.def Info: ../BinaryReactions/Images/equilibrium-solution.png  used on input line 223.
@@ -479,27 +479,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 228--232
 
  []
 
-[7 <../BinaryReactions/Images/equilibrium-solution.png>] (./main.bbl
+<../HydrogenFusion/Images/basic-solution.png, id=154, 722.7pt x 361.35pt>
+File: ../HydrogenFusion/Images/basic-solution.png Graphic file (type png)
+<use ../HydrogenFusion/Images/basic-solution.png>
+Package pdftex.def Info: ../HydrogenFusion/Images/basic-solution.png  used on input line 242.
+(pdftex.def)             Requested size: 413.99895pt x 206.9972pt.
+[7 <../BinaryReactions/Images/equilibrium-solution.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 247--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--257
+
+ []
+
+<../HydrogenFusion/Images/wont-start.png, id=162, 722.7pt x 361.35pt>
+File: ../HydrogenFusion/Images/wont-start.png Graphic file (type png)
+<use ../HydrogenFusion/Images/wont-start.png>
+Package pdftex.def Info: ../HydrogenFusion/Images/wont-start.png  used on input line 262.
+(pdftex.def)             Requested size: 413.99895pt x 206.9972pt.
+[8 <../HydrogenFusion/Images/basic-solution.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 267--271
+
+ []
+
+<../HydrogenFusion/Images/ghetto-fit.png, id=170, 462.528pt x 346.896pt>
+File: ../HydrogenFusion/Images/ghetto-fit.png Graphic file (type png)
+<use ../HydrogenFusion/Images/ghetto-fit.png>
+Package pdftex.def Info: ../HydrogenFusion/Images/ghetto-fit.png  used on input line 276.
+(pdftex.def)             Requested size: 413.99895pt x 310.51497pt.
+[9 <../HydrogenFusion/Images/wont-start.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 281--289
+
+ []
+
+<../HydrogenFusion/Images/quintic-fit.png, id=178, 361.35pt x 361.35pt>
+File: ../HydrogenFusion/Images/quintic-fit.png Graphic file (type png)
+<use ../HydrogenFusion/Images/quintic-fit.png>
+Package pdftex.def Info: ../HydrogenFusion/Images/quintic-fit.png  used on input line 297.
+(pdftex.def)             Requested size: 207.0021pt x 207.00272pt.
+[10 <../HydrogenFusion/Images/ghetto-fit.png>]
+<../HydrogenFusion/Images/rate-plot.png, id=186, 722.7pt x 361.35pt>
+File: ../HydrogenFusion/Images/rate-plot.png Graphic file (type png)
+<use ../HydrogenFusion/Images/rate-plot.png>
+Package pdftex.def Info: ../HydrogenFusion/Images/rate-plot.png  used on input line 314.
+(pdftex.def)             Requested size: 413.99895pt x 206.9972pt.
+ [11 <../HydrogenFusion/Images/quintic-fit.png> <../HydrogenFusion/Images/rate-plot.png>] [12] (./main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [8] (./main.aux)
+) [13] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B5DD6F8349C017C5895650754A0D6232;1203.
+(rerunfilecheck)             Checksum: 5AB2CDD6D14D92F74D4FB4F9029639BF;1398.
  ) 
 Here is how much of TeX's memory you used:
- 15853 strings out of 476182
- 301987 string characters out of 5796580
+ 15905 strings out of 476182
+ 303635 string characters out of 5796580
  1866793 words of memory out of 6000000
- 35932 multiletter control sequences out of 15000+600000
+ 35968 multiletter control sequences out of 15000+600000
  515033 words of font info for 42 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  72i,23n,77p,313b,899s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (9 pages, 457280 bytes).
+Output written on main.pdf (14 pages, 755657 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

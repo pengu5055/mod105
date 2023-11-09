@@ -230,6 +230,92 @@ da se družina krivulj zbere v krivulji, ki kaže proti vsoti $0.5$. Zdaj pri dr
 se mogoče pri normalizaciji rešitve zmotil za faktor $2$, ker bi morala vsota koncentracij biti $1$. Ampak recimo, 
 da se razume, kaj je mišljeno.\\
 
+\subsection{Sinteza vodikovega bromida}
+Spet si najprej poglejmo neko osnovno rešitev, kjer so narisane vse komponente. To je prikazano na sliki 
+\ref{fig:br-basic} za dva različna primera začetnih koncentracij in hitrosti reakcij. Vektor koncentracij
+je urejen tako, da je $[u, v, x, y, z]$. Vektor hitrosti reakcij pa je $[p, q, r, s, t]$.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../HydrogenFusion/Images/basic-solution.png}
+    }
+    \caption{Rešitev za sintezo vodikovega bromida.}
+    \label{fig:br-basic}
+\end{figure}
+
+Vidimo, da je dogajanje tu precej bolj zanimivo kot pri binarni reakciji. Zanimivo je, kako se na levem 
+primeru koncentracija $\mathrm{Br}_2$ ustali na neki vrednosti, medtem ko na desni najprej skoči in se nato 
+počasi povečuje. Res je težko reči, kaj je boljše, ker je odvisno od tega, kaj želimo. Še sploh pa, nisem
+kemik in ne vem, kaj je sploh koristen produkt. Če je cilj sinteza $\mathrm{HBr}$, potem je boljši desni primer,
+ker se $\mathrm{HBr}$ hitreje sintetizira. \\
+
+Model sem poskusil rešiti še v stacionarnem stanju, ampak sem dobil porazno slabe rezultate v tem smislu,
+da se reakcija, kljub zadostni količini reaktantov, nikoli ni začela. Zato sem se odločil, da bom raje
+določil konstanti $k$ in $m$ za eksakten model. Vseeno je na sliki \ref{fig:br-stac} na desni prikazana 
+rešitev v približku stacionarnega stanja. Za primerjavo je na levi točna rešitev za iste parametre.\\
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../HydrogenFusion/Images/wont-start.png}
+    }
+    \caption{Porazna rešitev v približku ravnovesnega stanja, ki ne začne.}
+    \label{fig:br-stac}
+\end{figure}
+
+Torej potem, kako najlažje določiti konstanti $k$ in $m$? Trudil sem se, da bi problem nekako lineariziral.
+Že imena parametrov spominjata na kakšno premico, ampak tega nisem uspel narediti. Zato sem se na koncu odločil 
+za hitro primerjavo preliminary fit metod, po katerih lahko posežemo, ko je treba za silo prilagoditi neko krivuljo.
+Rezultati so prikazani na sliki \ref{fig:br-fit}.\\
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../HydrogenFusion/Images/ghetto-fit.png}
+    }
+    \caption{Primerjava fit metod.}
+    \label{fig:br-fit}
+\end{figure}
+
+Podatki narisani na sliki so odvod koncentracije $\mathrm{HBr}$ po času. Potem pa sem primerjal 4 metode 
+za fit, s stopnjevanjem resnosti. Najbolj resna je metoda \texttt{curve\_fit} iz knjižnice \texttt{scipy.optimize}, ki 
+v temu primeru da najbolj brezvezne rezultate. Naslednja je domača metoda ljubkovalno poimenovana \texttt{ghetto\_fit},
+ki je v bistvu samo linearna regresija, ki je utežena tako, da imajo točke bližje izhodišču večjo utež. Ta že
+sproducira za odtenek boljše rezultate. Na koncu pa pride najbolj premium metoda \textbf{Hand fit}, kjer sem 
+na uč potegnil neke parametre in s tem dobil še najboljše rezultate. Jasno je, da je izraz za hitrost reakcije 
+ni mišljen, da bi znal opisati začetni tranzient, torej lahko rečem, da mora veljati samo dovolj kasne čase. V primeru
+\textbf{Hand fit} metode je to od nekje $t > 4$.\\
+
+Ker je prejšnji pristop sila amaterski sem potem za kompenzacijo naredil še drugi pristop, kjer sem prilegal
+polinom 5. stopnje. To je prikazano na sliki \ref{fig:br-poly}. 
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.6\textwidth]{../HydrogenFusion/Images/quintic-fit.png}
+    }
+    \caption{Fit polinoma 5. stopnje.}
+    \label{fig:br-poly}
+\end{figure}
+
+Vidimo da je ujemanje precej dobro. Imel sem željo, da bi določil odvisnost parametrov od začetnih koncentracij,
+ampak mi je za to zmanjkalo časa. Imam pripravljen HDF datoteko, kjer so shranjeni vsi podatki, tako da mogoče
+nekoč v prihodnosti, ali pa če bo kdo drug imel čas, da se loti tega. Zanimivo se mi je zdelo, da bi kemikom potem 
+podal graf hitrosti reakcij v odvisnosti od začetnih koncentracij v vodilnem redu. To pa sem naredil in je 
+prikazano na sliki \ref{fig:br-heatmap}, poleg še zahtevanih potekov za različne začetne koncentracije. Narisan je 
+tudi primer, ko dodamo ogromno $\mathrm{HBr}$, kjer se vidi, da je reakcija popolnoma nasičena z $\mathrm{HBr}$ in 
+se tako nikamor ne premakne. 
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=1.2\textwidth]{../HydrogenFusion/Images/rate-plot.png}
+    }
+    \caption{Hitrost sinteze vodikovega bromida.}
+    \label{fig:br-heatmap}
+\end{figure}
+
 
 
 \section{Komentarji in izboljšave}

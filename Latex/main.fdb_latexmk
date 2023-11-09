@@ -1,17 +1,22 @@
 # Fdb version 4
-["bibtex main"] 1699518342 "main.aux" "main.bbl" "main" 1699518343 0
+["bibtex main"] 1699520166 "main.aux" "main.bbl" "main" 1699520167 0
   "./sources.bib" 1697060406 585 59db498271dfb5e1811a288748c6fc20 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1684972800 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1699518343 2629 66d3fe59c3fd4ea9afbfcb8d7e77949b "pdflatex"
+  "main.aux" 1699520167 4071 ae85e3e95b3d7d1063488563e265c0ff "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1699518342 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699518343 0
+["pdflatex"] 1699520166 "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" "main.pdf" "main" 1699520167 0
   "../BinaryReactions/Images/basic-solution.png" 1699459438 59669 01d80f249eff9498c08549f4d9cd09e2 ""
   "../BinaryReactions/Images/equilibrium-solution.png" 1699462255 131223 e4c449476c1950adbf93c1ab3c75f42a ""
   "../BinaryReactions/Images/exact-solution.png" 1699459696 159366 92b346aebeff3d80506aad9d9daf244c ""
-  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699518341 10887 c4a81a5c1f8fd1b9245ab6f847907304 ""
+  "../HydrogenFusion/Images/basic-solution.png" 1699465006 99317 2102464b9b4a9c457ce7289a7cb066ef ""
+  "../HydrogenFusion/Images/ghetto-fit.png" 1699480594 67404 aeb9fa7b006cd0b5a3a052b470ead715 ""
+  "../HydrogenFusion/Images/quintic-fit.png" 1699470154 48127 0247b75ea78ed89b029f7ef46d5fc969 ""
+  "../HydrogenFusion/Images/rate-plot.png" 1699483261 118868 c58611f8ab1cad1badc2b8d543432114 ""
+  "../HydrogenFusion/Images/wont-start.png" 1699469246 60948 f681f770bba00f567be6037ddd068f7c ""
+  "/home/pengu5055/Documents/FMF/Year1/MA1/mod105/Latex/main.tex" 1699520164 15531 f3f7e4e055570385719ff21f1fced4db ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -104,11 +109,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1697067503 4603192 0eff5d941e341e7e38e369b967619829 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1698184798 7863017 0e78b0df0d83ada11ff4dea35803c082 ""
   "logo.png" 1697060406 8303 7b15c7eec596b95d22d9e8d01528be9a ""
-  "main.aux" 1699518343 2629 66d3fe59c3fd4ea9afbfcb8d7e77949b "pdflatex"
-  "main.bbl" 1699518342 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.out" 1699518343 1203 b5dd6f8349c017c5895650754a0d6232 "pdflatex"
-  "main.tex" 1699518341 10887 c4a81a5c1f8fd1b9245ab6f847907304 ""
-  "main.toc" 1699518343 755 d44e56b10178da3cd34816d34acff9ae "pdflatex"
+  "main.aux" 1699520167 4071 ae85e3e95b3d7d1063488563e265c0ff "pdflatex"
+  "main.bbl" 1699520166 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
+  "main.out" 1699520167 1398 5ab2cdd6d14d92f74d4fb4f9029639bf "pdflatex"
+  "main.tex" 1699520164 15531 f3f7e4e055570385719ff21f1fced4db ""
+  "main.toc" 1699520167 850 09b4faf89f30cef3068f5410153911a9 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
